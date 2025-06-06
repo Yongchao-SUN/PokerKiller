@@ -39,4 +39,10 @@ public class CardData : MonoBehaviour
             }
         }
     }
+
+    public Card RandomCard()
+    {
+        int cardId = Random.Range(0, cardList.Count);
+        return cardId;
+    }
 }
