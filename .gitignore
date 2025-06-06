@@ -1,0 +1,20 @@
+# Unity 自动生成文件
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Bb]uild/
+/[Bb]uilds/
+/[Ll]ogs/
+/[Uu]ser[Ss]ettings/
+
+# 工程文件
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.userprefs
+
+# 大文件/二进制文件（可选忽略）
+*.a
+*.dll
+*.zip
