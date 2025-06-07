@@ -1,0 +1,4 @@
+#,Id,cardName,cardDescription,cardEnergyRequired,cardObject,
+##,0,test0,description0,1,monster,
+##,1,test1,description1,1,poker,
+##,2,test2,description2,1,player,

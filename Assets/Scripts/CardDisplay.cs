@@ -7,9 +7,8 @@ public class CardDisplay : MonoBehaviour
 {
     public Text nameText;
     public Text descriptionText;
-
-    public Image cardImage;
     public Image backgroundImage;
+    public Text energyRequiredText;
 
     public Card card;
 
@@ -29,5 +28,6 @@ public class CardDisplay : MonoBehaviour
     {
         nameText.text = card.cardName;
         descriptionText.text = card.cardDescription;
+        energyRequiredText.text = card.cardEnergyRequired;
     }
 }
