@@ -285,7 +285,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &141939746
 MonoBehaviour:
@@ -314,8 +314,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EffectHand: {fileID: 363816959}
   BattleCardPrefab: {fileID: 4428538671843629167, guid: d928a2e42f1b8a34380510abc722c33e, type: 3}
+  NewTurnPopupPrefab: {fileID: 0}
   drawCardAmount: 3
   drawPokerAmount: 6
+  popTime: 0.5
+  energyChargeAmount: 0
+  cardListOfDeck: 
 --- !u!1 &303643543
 GameObject:
   m_ObjectHideFlags: 0
@@ -1292,7 +1296,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1185127701}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 141939747}
+        m_TargetAssemblyTypeName: BattleManager, Assembly-CSharp
+        m_MethodName: turnEnd
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1185127701
 MonoBehaviour:
   m_ObjectHideFlags: 0
