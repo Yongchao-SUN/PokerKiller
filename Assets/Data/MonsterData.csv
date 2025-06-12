@@ -1,0 +1,4 @@
+﻿#,MonsterName,MonsterMaxHp,MonsterBehaviorType,MonsterAtk,MonsterDef,
+##,Monster_A,20,Atk/Def,15,10,
+##,Monster_B,50,Atk/Def,0,25,
+##,Monster_C,50,Atk/Def,25,30,

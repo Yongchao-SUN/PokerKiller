@@ -1,15 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
 
 public class PlayerLoad : MonoBehaviour
 {
-    public TextAsset playerData;
-    public int playerMaxHp;
-    public int playerHp;
-    public int playerCoins;
-    public int playerMaxEnergy;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -24,22 +19,21 @@ public class PlayerLoad : MonoBehaviour
     
     public int LoadPlayerData(string dataType)
     {
-        string[] dataRow = playerData.text.Split('\n');
-        foreach (var row in dataRow)
-        {
-            string[] rowArray = row.Split(',');
-            if (rowArray[0] == "#")
-            {
-                continue;
-            }
-            else if (rowArray[0] == "##")
-            {
-                playerMaxHp = int.Parse(rowArray[1]);
-                playerHp = int.Parse(rowArray[2]);
-                playerCoins = int.Parse(rowArray[3]);
-                playerMaxEnergy = int.Parse(rowArray[4]);
-            }
-        }
+        int playerMaxHp = 0;
+        int playerHp = 0;
+        int playerCoins = 0;
+        int playerMaxEnergy = 0;
+        int playerEnergy = 0;
+
+        string filePath = "Assets/Data/playerData.csv";
+        var lines = File.ReadAllLines(filePath);
+
+        var columns = lines[1].Split(',');
+        playerMaxHp = int.Parse(columns[1]);
+        playerHp = int.Parse(columns[2]);
+        playerCoins = int.Parse(columns[3]);
+        playerMaxEnergy = int.Parse(columns[4]);
+        playerEnergy = int.Parse(columns[5]);
         
         if (dataType == "maxHp")
         {
@@ -56,6 +50,10 @@ public class PlayerLoad : MonoBehaviour
         else if (dataType == "maxEnergy")
         {
             return playerMaxEnergy;
+        }
+        else if (dataType == "energy")
+        {
+            return playerEnergy;
         }
         else
         {

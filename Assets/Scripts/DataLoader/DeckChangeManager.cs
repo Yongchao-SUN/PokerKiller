@@ -19,12 +19,12 @@ public class DeckChangeManager : MonoBehaviour
 
     public static void CardAddToDeck(int cardId)
     {
-        string filePath = "deckData.csv";
+        string filePath = "Assets/Data/deckData.csv";
         var lines = File.ReadAllLines(filePath);
 
-        var columns = lines[2].Split(',');
-        columns[cardId + 1] += 1;
-        lines[2] = string.Join(",", columns);
+        var columns = lines[cardId + 1].Split(',');
+        columns[2] += 1;
+        lines[cardId + 1] = string.Join(",", columns);
 
         File.WriteAllLines(filePath, lines);
     } 
@@ -34,9 +34,9 @@ public class DeckChangeManager : MonoBehaviour
         string filePath = "deckData.csv";
         var lines = File.ReadAllLines(filePath);
 
-        var columns = lines[2].Split(',');
-        columns[cardId + 1] += -1;
-        lines[2] = string.Join(",", columns);
+        var columns = lines[cardId + 1].Split(',');
+        columns[2] += -1;
+        lines[cardId + 1] = string.Join(",", columns);
 
         File.WriteAllLines(filePath, lines);
     }

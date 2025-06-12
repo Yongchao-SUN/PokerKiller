@@ -549,6 +549,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1376648632}
   - component: {fileID: 1376648633}
+  - component: {fileID: 1376648634}
+  - component: {fileID: 1376648635}
+  - component: {fileID: 1376648636}
+  - component: {fileID: 1376648637}
   m_Layer: 0
   m_Name: SceneLoader
   m_TagString: Untagged
@@ -583,6 +587,60 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6dd5ed8b4bb0df4e86edf8b650a9f44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1376648634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1376648631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6777369df61d2f04f8198f128827923d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1376648635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1376648631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15db6cb8d86f99948ad3ede0c2d52ea8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardData: {fileID: 4900000, guid: 654538faa0f19124da253d0b9c6df9a9, type: 3}
+--- !u!114 &1376648636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1376648631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c25d1d1319cdea4458ea778e897b749d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deckData: {fileID: 4900000, guid: f0b70651fc0c45f4296bf778f180da34, type: 3}
+  cardData: {fileID: 4900000, guid: 654538faa0f19124da253d0b9c6df9a9, type: 3}
+  cardListOfDeck: 
+--- !u!114 &1376648637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1376648631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b4c3440c75524249b760abfa8ff93d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  touchPositionText: {fileID: 0}
+  longPressDuration: 1
 --- !u!1 &1711137818
 GameObject:
   m_ObjectHideFlags: 0
@@ -705,6 +763,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4994501407118503306}
   - component: {fileID: 3985700602936811274}
+  - component: {fileID: 4994501407118503307}
   - component: {fileID: 1255657671153537176}
   m_Layer: 5
   m_Name: CardRewardButton
@@ -920,6 +979,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &4994501407118503307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 245383853744897412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9e2270bd42cf6044a0deee639210fe6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &5405681850413215386
 MonoBehaviour:
   m_ObjectHideFlags: 0

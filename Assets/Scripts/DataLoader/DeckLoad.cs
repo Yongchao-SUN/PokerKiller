@@ -42,7 +42,7 @@ public class DeckLoad : MonoBehaviour
         }
     }
 
-    public Card RandomDraw()
+    public Card RandomDrawCard()
     {
         int drawId = cardListOfDeck[Random.Range(0, cardListOfDeck.Count)];
         Card card = null;
@@ -62,6 +62,8 @@ public class DeckLoad : MonoBehaviour
                 string cardEnergyRequired = rowArray[4];
                 string cardObject = rowArray[5];
                 card = new Card(drawId, cardName, cardDescription, cardEnergyRequired, cardObject);
+                cardListOfDeck.Remove(drawId);
+
                 break;
             }
         }

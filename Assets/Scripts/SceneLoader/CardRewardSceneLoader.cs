@@ -13,6 +13,7 @@ public class CardRewardSceneLoader : MonoBehaviour
     void Start()
     {
         CardLoad = GetComponent<CardLoad>();
+        CardLoad.LoadCardData();
 
         for (int i = 0; i < 3; i++)
         {

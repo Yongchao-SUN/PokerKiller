@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class CardRewardButton : MonoBehaviour, IPointerClickHandler
+public class CardRewardButton : MonoBehaviour, IPointerDownHandler
 {
     // Start is called before the first frame update
     void Start()
@@ -25,7 +25,7 @@ public class CardRewardButton : MonoBehaviour, IPointerClickHandler
         }
     }
 
-    public void OnPointerClick(PointerEventData eventData)
+    public void OnPointerDown(PointerEventData eventData)
     {
         gameObject.SetActive(false);
         SceneLoadManager.LoadSceneByName("CardReward");

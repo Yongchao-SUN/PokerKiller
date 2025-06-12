@@ -16,27 +16,39 @@ public class MonsterBehavior : MonoBehaviour
         
     }
 
-    public static string monsterBehaviorKind()
+    public static string monsterBehaviorType(string MonsterBehavior)
     {
-        float monsterAttack = Random.value;
-        if (Random.value < 0.5)
+        string[] MonsterBehaviorArray = MonsterBehavior.Split("/");
+
+        if (MonsterBehaviorArray.Length == 1)
         {
-            return "Atk";
+            return MonsterBehavior;
+        }
+        else if (MonsterBehaviorArray.Length == 2)
+        {
+            if (Random.value < 0.5)
+            {
+                return MonsterBehaviorArray[0];
+            }
+            else
+            {
+                return MonsterBehaviorArray[1];
+            }
         }
         else
         {
-            return "Def";
+            if (Random.value < 1f / 3f)
+            {
+                return MonsterBehaviorArray[0];
+            }
+            else if (Random.value < 2f / 3f)
+            {
+                return MonsterBehaviorArray[1];
+            }
+            else
+            {
+                return MonsterBehaviorArray[2];
+            }
         }
-    }
-
-    public static int monsterStats(int monsterDiceX, int monsterDiceNumber)
-    {
-        int monsterStat = 0;
-        for (int i = 0; i < monsterDiceNumber; i++)
-        {
-            int diceResult = Random.Range(1, monsterDiceX + 1);
-            monsterStat += diceResult;
-        }
-        return monsterStat;
     }
 }
