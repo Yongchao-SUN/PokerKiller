@@ -23,7 +23,7 @@ public class EnergyBallDisplay : MonoBehaviour
 
     public void ShowEnergy()
     {
-        string EnergyShow = PlayerLoad.LoadPlayerData("energy").ToString() + "/" + PlayerLoad.LoadPlayerData("maxEnergy").ToString();
+        string EnergyShow = PlayerLoad.playerDataList[4] + "/" + PlayerLoad.playerDataList[3];
         EnergyShowText.text = EnergyShow;
     }
 }

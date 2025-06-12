@@ -31,9 +31,9 @@ public class BattleManager : MonoBehaviour
     public int energyChargeAmount;
     public List<GameObject> drawCardList = new List<GameObject>();
     public List<GameObject> drawPokerList = new List<GameObject>();
-    public List<int> pokerDamageComponent = new List<int>();
-    public List<int> pokerShieldComponent = new List<int>();
-    public List<int> pokerHealthComponent = new List<int>();
+    public static List<int> pokerDamageComponent = new List<int>();
+    public static List<int> pokerShieldComponent = new List<int>();
+    public static List<int> pokerHealthComponent = new List<int>();
     public GameObject[] childObjects;
 
     public int playerShield = 0;
@@ -54,11 +54,10 @@ public class BattleManager : MonoBehaviour
         PokerLoad = GetComponent<PokerLoad>();
         PlayerLoad = GetComponent<PlayerLoad>();
         MonsterLoad = GetComponent<MonsterLoad>();
-        childObjects = new GameObject[transform.childCount];
         CardLoad.LoadCardData();
         DeckLoad.LoadDeckData();
         PokerLoad.LoadPokerData();
-        energyChargeAmount = PlayerLoad.LoadPlayerData("maxEnergy");
+        PlayerLoad.LoadPlayerData();
         ProduceButton.SetActive(ifPokerSelectedLegal);
 
         gameStart();
@@ -79,25 +78,17 @@ public class BattleManager : MonoBehaviour
             useEffect(BattleCard.lastClickedCardName);
             BattleCard.ifBattleCardClicked = false;
         }
+
+        if (TurnEndButton.ifEndTurn == true)
+        {
+            turnEnd();
+            TurnEndButton.ifEndTurn = false;
+        }
     }
 
     public void playerHpChange(int changeAmount)
     {
-        string filePath = "Assets/Data/playerData.csv";
-        var lines = File.ReadAllLines(filePath);
-
-        var columns = lines[1].Split(',');
-        if (int.Parse(columns[2]) + changeAmount <= int.Parse(columns[1]))
-        {
-            columns[2] = (int.Parse(columns[2]) + changeAmount).ToString();
-        }
-        else
-        {
-            columns[2] = columns[1];
-        }
-        lines[1] = string.Join(",", columns);
-
-        File.WriteAllLines(filePath, lines);
+        PlayerLoad.playerDataList[1] += changeAmount;
     }
     public void monsterHpChange(int changeAmount)
     {
@@ -245,14 +236,7 @@ public class BattleManager : MonoBehaviour
     }
     public void energyCharge(int energyChargeAmount)
     {
-        string filePath = "Assets/Data/playerData.csv";
-        var lines = File.ReadAllLines(filePath);
-
-        var columns = lines[1].Split(',');
-        columns[5] = (int.Parse(columns[5]) + energyChargeAmount).ToString();
-        lines[1] = string.Join(",", columns);
-
-        File.WriteAllLines(filePath, lines);
+        PlayerLoad.playerDataList[1] += energyChargeAmount;
     }
 
     public void PokerProduce()
@@ -267,7 +251,7 @@ public class BattleManager : MonoBehaviour
         PokerBehavior.SelectedPokerList.Clear();
         PokerBehavior.SelectedObjectList.Clear();
     }
-    public void turnEndButton()
+    public void turnEnd()
     {
         //playerBuffDeal();
         //MonsterBuffDeal();
@@ -310,14 +294,8 @@ public class BattleManager : MonoBehaviour
 
     public void gameStart()
     {
-        string filePath = "Assets/Data/playerData.csv";
-        var lines = File.ReadAllLines(filePath);
+        PlayerLoad.playerDataList[1] += PlayerLoad.playerDataList[2];
 
-        var columns = lines[1].Split(',');
-        columns[5] = columns[4];
-        lines[1] = string.Join(",", columns);
-
-        File.WriteAllLines(filePath, lines);
         playerCreate();
         monsterCreate();
         drawCard(drawCardAmount);

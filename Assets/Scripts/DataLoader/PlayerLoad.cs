@@ -5,10 +5,14 @@ using System.IO;
 
 public class PlayerLoad : MonoBehaviour
 {
+    public static List<int> playerDataList = new List<int>();
+
+    public TextAsset playerData;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -17,47 +21,23 @@ public class PlayerLoad : MonoBehaviour
         
     }
     
-    public int LoadPlayerData(string dataType)
+    public void LoadPlayerData()
     {
-        int playerMaxHp = 0;
-        int playerHp = 0;
-        int playerCoins = 0;
-        int playerMaxEnergy = 0;
-        int playerEnergy = 0;
-
-        string filePath = "Assets/Data/playerData.csv";
-        var lines = File.ReadAllLines(filePath);
-
-        var columns = lines[1].Split(',');
-        playerMaxHp = int.Parse(columns[1]);
-        playerHp = int.Parse(columns[2]);
-        playerCoins = int.Parse(columns[3]);
-        playerMaxEnergy = int.Parse(columns[4]);
-        playerEnergy = int.Parse(columns[5]);
-        
-        if (dataType == "maxHp")
+        string[] dataRow = playerData.text.Split('\n');
+        foreach (var row in dataRow)
         {
-            return playerMaxHp;
-        }
-        else if (dataType == "Hp")
-        {
-            return playerHp;
-        }
-        else if (dataType == "coins")
-        {
-            return playerCoins;
-        }
-        else if (dataType == "maxEnergy")
-        {
-            return playerMaxEnergy;
-        }
-        else if (dataType == "energy")
-        {
-            return playerEnergy;
-        }
-        else
-        {
-            return 0;
+            string[] rowArray = row.Split(',');
+            if (rowArray[0] == "#")
+            {
+                continue;
+            }
+            else if (rowArray[0] == "##")
+            {
+                for (int i = 0; i < rowArray.Length - 2; i++)
+                {
+                    playerDataList.Add(int.Parse(rowArray[i + 1]));
+                }
+            }
         }
     }
 }

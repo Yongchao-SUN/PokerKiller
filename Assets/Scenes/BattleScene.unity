@@ -1191,9 +1191,6 @@ MonoBehaviour:
   energyChargeAmount: 0
   drawCardList: []
   drawPokerList: []
-  pokerDamageComponent: 
-  pokerShieldComponent: 
-  pokerHealthComponent: 
   childObjects: []
   playerShield: 0
   monsterShield: 0
@@ -1265,6 +1262,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38e6a872b0a28714897032819732d647, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerData: {fileID: 4900000, guid: 5df0c6f479224034e84574e4dbaf9d16, type: 3}
 --- !u!114 &780292778
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1646,8 +1644,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1185127699}
   - component: {fileID: 1185127702}
+  - component: {fileID: 1185127703}
   - component: {fileID: 1185127701}
-  - component: {fileID: 1185127700}
   m_Layer: 5
   m_Name: TurnEndButton
   m_TagString: Untagged
@@ -1675,62 +1673,6 @@ RectTransform:
   m_AnchoredPosition: {x: 822, y: -143}
   m_SizeDelta: {x: 120, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1185127700
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1185127698}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 1185127701}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 780292772}
-        m_TargetAssemblyTypeName: BattleManager, Assembly-CSharp
-        m_MethodName: turnEndButton
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &1185127701
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1769,6 +1711,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1185127698}
   m_CullTransparentMesh: 1
+--- !u!114 &1185127703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1185127698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e05f62d0aa963b4d80c0e367a5c192e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1204382153
 GameObject:
   m_ObjectHideFlags: 0
@@ -2043,6 +1997,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38e6a872b0a28714897032819732d647, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerData: {fileID: 4900000, guid: 5df0c6f479224034e84574e4dbaf9d16, type: 3}
 --- !u!1 &1606502523
 GameObject:
   m_ObjectHideFlags: 0
@@ -2271,8 +2226,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2087007719}
   - component: {fileID: 2087007722}
+  - component: {fileID: 2087007723}
   - component: {fileID: 2087007721}
-  - component: {fileID: 2087007720}
   m_Layer: 5
   m_Name: PokerProduce
   m_TagString: Untagged
@@ -2300,62 +2255,6 @@ RectTransform:
   m_AnchoredPosition: {x: 650, y: -143}
   m_SizeDelta: {x: 120, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2087007720
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2087007718}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 2087007721}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 780292772}
-        m_TargetAssemblyTypeName: BattleManager, Assembly-CSharp
-        m_MethodName: PokerProduce
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &2087007721
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2394,6 +2293,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2087007718}
   m_CullTransparentMesh: 1
+--- !u!114 &2087007723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2087007718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76a597aabab2b9249b26b348a4961e17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

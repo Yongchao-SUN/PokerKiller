@@ -29,11 +29,11 @@ public class PlayerShow : MonoBehaviour
 
     public void HpShow()
     {
-        targetLength = PlayerLoad.LoadPlayerData("Hp") / PlayerLoad.LoadPlayerData("maxHp");
+        targetLength = PlayerLoad.playerDataList[1] / PlayerLoad.playerDataList[0];
 
         float newX = Mathf.Lerp(HpLine.transform.localScale.x, targetLength, changeSpeed * Time.deltaTime);
         HpLine.transform.localScale = new Vector3(newX, originalScale.y, originalScale.z);
 
-        HpText.text = PlayerLoad.LoadPlayerData("Hp") + " / " + PlayerLoad.LoadPlayerData("maxHp");
+        HpText.text = PlayerLoad.playerDataList[1] + " / " + PlayerLoad.playerDataList[0];
     }
 }
